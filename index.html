@@ -26,10 +26,10 @@
     }
 
     nav {
-      position: sticky;
+      position: fixed;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.9);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -41,6 +41,7 @@
     nav h1 {
       font-size: 1.8rem;
       color: #00acc1;
+      font-weight: bold;
     }
 
     nav a {
@@ -65,21 +66,41 @@
       padding: 0 1rem;
       position: relative;
       z-index: 1;
-      background: linear-gradient(180deg, #e0f7fa 0%, #ffffff 100%);
+      background: linear-gradient(180deg, #fefefe 0%, #f3faff 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 180%;
+      height: 180%;
+      background: radial-gradient(circle at 30% 30%, rgba(0,172,193,0.1), transparent 70%),
+                  radial-gradient(circle at 70% 60%, rgba(129,212,250,0.1), transparent 70%);
+      animation: floatBackground 60s linear infinite alternate;
+      z-index: 0;
+    }
+
+    @keyframes floatBackground {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-5%, -3%); }
     }
 
     .hero h1 {
-      font-size: 3.5rem;
-      background: linear-gradient(90deg, #00acc1, #81d4fa);
+      font-size: 4rem;
+      background: linear-gradient(to right, #00acc1, #81d4fa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      z-index: 1;
+      font-weight: bold;
     }
 
     .hero p {
       margin-top: 1rem;
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       color: #555;
       max-width: 700px;
+      z-index: 1;
     }
 
     .cta {
@@ -93,6 +114,7 @@
       border-radius: 30px;
       cursor: pointer;
       transition: all 0.3s ease;
+      z-index: 1;
     }
 
     .cta:hover {
@@ -101,28 +123,24 @@
     }
 
     .section {
-      padding: 5rem 2rem;
+      padding: 6rem 2rem;
       background: #ffffff;
-      transition: transform 0.5s, box-shadow 0.5s;
-    }
-
-    .section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 40px rgba(0, 172, 193, 0.1);
+      position: relative;
+      z-index: 1;
     }
 
     .section h2 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       color: #00acc1;
       margin-bottom: 2rem;
     }
 
     .section p {
-      max-width: 800px;
+      max-width: 850px;
       margin: auto;
-      font-size: 1.1rem;
-      color: #666;
+      font-size: 1.2rem;
+      color: #444;
       line-height: 1.8;
       text-align: center;
     }
@@ -132,16 +150,45 @@
       justify-content: center;
       align-items: center;
       height: 300px;
-      background: #e1f5fe;
-      margin: 2rem;
-      border-radius: 20px;
-      box-shadow: inset 0 0 20px rgba(0, 188, 212, 0.1);
-      transform: perspective(800px) rotateX(5deg) rotateY(-5deg);
-      transition: transform 0.8s ease-in-out;
+      background: #f0faff;
+      margin: 3rem auto;
+      border-radius: 25px;
+      box-shadow: 0 0 30px rgba(0, 188, 212, 0.1);
+      max-width: 900px;
+      transform: perspective(800px) rotateX(6deg) rotateY(-6deg);
+      transition: transform 0.7s ease-in-out;
     }
 
     .showcase:hover {
-      transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+      transform: perspective(800px) rotateX(0) rotateY(0);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: 4rem auto;
+    }
+
+    .project-card {
+      background: #f9f9f9;
+      padding: 2rem;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 172, 193, 0.15);
+    }
+
+    .project-card h3 {
+      color: #00acc1;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
     }
 
     .calendly {
@@ -150,7 +197,7 @@
     }
 
     .calendly a {
-      font-size: 1rem;
+      font-size: 1.1rem;
       color: #00acc1;
       text-decoration: underline;
     }
@@ -169,28 +216,46 @@
   </nav>
 
   <section class="hero">
-    <h1>Next-Gen Lead Systems</h1>
-    <p>Futuristic AI automation that attracts, converts, and retains clients with stunning precision and intelligent systems.</p>
+    <h1 id="typewriter"></h1>
+    <p>We create modern, animated, high-converting experiences to grow your business — powered by AI and designed with intent.</p>
     <a href="https://calendly.com/emmotu2006" target="_blank"><button class="cta">Book Your Free Demo Call</button></a>
   </section>
 
   <section class="section" id="about">
     <h2>What We Do</h2>
-    <p>LeadCircuit automates the lead generation journey using advanced AI and machine learning. Our tools crawl public data, extract prospects, and personalize messages that drive response — removing the guesswork and saving you hours daily.</p>
+    <p>LeadCircuit builds highly visual and intelligent lead gen tools tailored for financial professionals. We integrate data scraping, automated outreach, and sleek UI design — all optimized for performance and visual elegance.</p>
   </section>
 
   <section class="section showcase">
     <h2>🚀 Real-Time Lead Showcase</h2>
   </section>
 
+  <section class="section">
+    <h2>Our Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>SmartLead Automation</h3>
+        <p>Automated scraping & outreach for RIAs</p>
+      </div>
+      <div class="project-card">
+        <h3>Funnel Builder UI</h3>
+        <p>Sleek design for converting traffic into calls</p>
+      </div>
+      <div class="project-card">
+        <h3>Email AI Personalizer</h3>
+        <p>Dynamic first lines with API integration</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="benefits">
     <h2>Why LeadCircuit?</h2>
-    <p>We mix creativity with deep tech. Our clients enjoy high-quality, high-converting conversations on autopilot. Powered by data science, driven by design — we're the future of smart marketing for financial pros.</p>
+    <p>We’re not just another lead agency — we’re a creative technology lab. Every site and system is built from scratch with animation, interactivity, and conversion science in mind. The future of sales is visual. We make it beautiful and effective.</p>
   </section>
 
   <section class="section" id="contact">
     <h2>Get in Touch</h2>
-    <p>Let’s help you scale with elegance and precision. We build lead engines you never thought possible — futuristic, intuitive, and built to win.</p>
+    <p>Let’s build you a lead engine that reflects your brand and delivers results. Our demos speak for themselves. Let’s connect today.</p>
     <div class="calendly">
       <a href="https://calendly.com/emmotu2006" target="_blank">Schedule a Strategy Call via Calendly</a>
     </div>
@@ -198,19 +263,46 @@
 
   <script>
     gsap.registerPlugin(ScrollTrigger);
-
     gsap.utils.toArray(".section").forEach(section => {
       gsap.from(section, {
-        scrollTrigger: {
-          trigger: section,
-          start: "top 80%",
-        },
+        scrollTrigger: { trigger: section, start: "top 80%" },
         y: 100,
         opacity: 0,
         duration: 1.2,
         ease: "power2.out"
       });
     });
+
+    // Typewriter effect
+    const phrases = ["Next-Gen Lead Systems", "Designed to Convert", "Powered by AI"];
+    let i = 0, j = 0, currentPhrase = [], isDeleting = false, isEnd = false;
+
+    function loop() {
+      document.getElementById("typewriter").innerHTML = currentPhrase.join("");
+      if (i < phrases.length) {
+        if (!isDeleting && j <= phrases[i].length) {
+          currentPhrase.push(phrases[i][j]);
+          j++;
+        }
+        if (isDeleting && j <= phrases[i].length) {
+          currentPhrase.pop();
+          j--;
+        }
+        if (j === phrases[i].length) {
+          isEnd = true;
+          isDeleting = true;
+        }
+        if (isDeleting && j === 0) {
+          currentPhrase = [];
+          isDeleting = false;
+          i++;
+          if (i === phrases.length) i = 0;
+        }
+      }
+      const speed = isEnd ? 120 : isDeleting ? 40 : 100;
+      setTimeout(loop, speed);
+    }
+    loop();
   </script>
 </body>
 </html>
