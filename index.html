@@ -3,127 +3,256 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LeadCircuit | AI for Financial Advisors</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>LeadCircuit AI Agency</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #f5f5f5;
-      color: #111;
+      padding: 0;
+      box-sizing: border-box;
     }
-    header {
-      background: linear-gradient(to right, #1e3a8a, #2563eb);
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
+
+    html {
+      scroll-behavior: smooth;
     }
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: radial-gradient(circle at top left, #0f0f0f, #000000);
+      color: #fff;
+      overflow-x: hidden;
+      transition: background 1s ease;
     }
-    header p {
-      font-size: 1.25rem;
-      max-width: 700px;
-      margin: auto;
-    }
+
     nav {
-      background-color: white;
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+      backdrop-filter: blur(10px);
     }
+
+    nav h1 {
+      font-size: 1.5rem;
+      color: #00ffe7;
+    }
+
     nav a {
-      color: #2563eb;
+      color: #fff;
+      margin-left: 1.5rem;
       text-decoration: none;
-      font-weight: 600;
+      transition: color 0.3s;
     }
-    .section {
-      max-width: 1000px;
-      margin: 4rem auto;
-      padding: 0 2rem;
+
+    nav a:hover {
+      color: #00ffe7;
     }
-    .section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #1e3a8a;
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      text-align: center;
+      padding: 0 1rem;
     }
-    .benefits {
+
+    .hero h1 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, #00ffe7, #006eff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeInDown 1s ease forwards;
+    }
+
+    .hero p {
+      margin-top: 1rem;
+      font-size: 1.25rem;
+      color: #ccc;
+      max-width: 600px;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .cta {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      border: none;
+      background: #00ffe7;
+      color: #000;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ffe7;
+    }
+
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    .service-section {
+      padding: 4rem 2rem;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
     }
+
     .card {
-      background: white;
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-    }
-    .cta-section {
-      background: #2563eb;
-      color: white;
-      padding: 3rem 2rem;
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .cta-section a {
-      display: inline-block;
-      margin-top: 1rem;
-      background: white;
-      color: #2563eb;
-      font-weight: bold;
-      padding: 0.75rem 2rem;
-      border-radius: 0.5rem;
-      text-decoration: none;
-    }
-    footer {
-      background-color: #1e1e1e;
-      color: #ccc;
-      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
       padding: 2rem;
-      font-size: 0.875rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 255, 231, 0.2);
+      transform: perspective(600px) rotateY(0deg);
+      transition: transform 0.5s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: perspective(600px) rotateY(5deg);
+      box-shadow: 0 0 30px rgba(0, 255, 231, 0.5);
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <nav>
-    <div><strong>LeadCircuit</strong></div>
-    <a href="https://calendly.com/emmotu2006" target="_blank">Book a Demo</a>
-  </nav>
-  <header>
-    <h1>AI-Powered Lead Generation for Financial Advisors</h1>
-    <p>Grow your client base without lifting a finger. We automate your outreach and deliver qualified appointments straight to your calendar — guaranteed.</p>
-  </header>
-  <div class="section">
-    <h2>Why Choose LeadCircuit?</h2>
-    <div class="benefits">
-      <div class="card">
-        <h3>Automated Outreach</h3>
-        <p>Our AI handles lead scraping, qualification, and personalized cold outreach 24/7.</p>
-      </div>
-      <div class="card">
-        <h3>Qualified Appointments</h3>
-        <p>We don’t just send leads — we book real, high-intent prospects onto your calendar.</p>
-      </div>
-      <div class="card">
-        <h3>Zero Risk Guarantee</h3>
-        <p>If we don’t deliver the promised results, you don’t pay. It’s that simple.</p>
-      </div>
+    <h1>LeadCircuit</h1>
+    <div>
+      <a href="#">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
     </div>
-  </div>
-  <div class="cta-section">
-    <h2>Ready to Fill Your Calendar with Qualified Leads?</h2>
-    <p>Book a free demo call now and see how our AI system works in real time.</p>
-    <a href="https://calendly.com/emmotu2006" target="_blank">Book Your Free Demo Call</a>
-  </div>
-  <footer>
-    &copy; 2025 LeadCircuit. All rights reserved.
-  </footer>
+  </nav>
+
+  <section class="hero">
+    <div class="particles" id="particles"></div>
+    <h1>AI-Powered Lead Systems Built to Convert</h1>
+    <p>Next-gen automation for financial services. Transforming cold traffic into loyal clients using cutting-edge AI.</p>
+    <button class="cta">Book a Free Strategy Call</button>
+  </section>
+
+  <section class="service-section" id="services">
+    <div class="card">
+      <h3>Smart Lead Scraping</h3>
+      <p>Auto-collect targeted leads from LinkedIn, Crunchbase, and Google Maps with enrichment APIs.</p>
+    </div>
+    <div class="card">
+      <h3>Email Automation</h3>
+      <p>Send hyper-personalized cold emails with Smartlead.ai + deliverability optimized workflows.</p>
+    </div>
+    <div class="card">
+      <h3>CRM Integration</h3>
+      <p>Track every click and reply in real-time using free CRMs like HubSpot or GoHighLevel.</p>
+    </div>
+  </section>
+
+  <!-- Page transition loader -->
+  <div id="transition" style="position:fixed;width:100vw;height:100vh;top:0;left:0;background:#000;z-index:9999;opacity:1;transition:opacity 1s;"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.0/tsparticles.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r148/three.min.js"></script>
+  <script>
+    // Particles background
+    tsParticles.load("particles", {
+      fullScreen: { enable: false },
+      background: { color: { value: "transparent" } },
+      particles: {
+        number: { value: 60 },
+        color: { value: ["#00ffe7", "#006eff"] },
+        shape: { type: "circle" },
+        opacity: { value: 0.5 },
+        size: { value: 3 },
+        move: { enable: true, speed: 1 }
+      }
+    });
+
+    // 3D tilt cards
+    VanillaTilt.init(document.querySelectorAll(".card"), {
+      max: 15,
+      speed: 400,
+      glare: true,
+      "max-glare": 0.2
+    });
+
+    // Page transition
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("transition");
+      loader.style.opacity = 0;
+      setTimeout(() => loader.remove(), 1000);
+    });
+
+    // Mouse parallax
+    document.querySelector(".hero").addEventListener("mousemove", e => {
+      document.querySelector(".particles").style.transform = `translate(${e.clientX * 0.02}px, ${e.clientY * 0.02}px)`;
+    });
+
+    // GSAP scroll entrance animations
+    gsap.from(".card", {
+      scrollTrigger: {
+        trigger: ".card",
+        start: "top 80%",
+      },
+      y: 50,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.2,
+      ease: "power2.out"
+    });
+
+    // Optional: Three.js floating orb
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'fixed';
+    canvas.style.bottom = '2rem';
+    canvas.style.right = '2rem';
+    canvas.style.zIndex = '0';
+    document.body.appendChild(canvas);
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    renderer.setSize(150, 150);
+    const geometry = new THREE.SphereGeometry(1, 32, 32);
+    const material = new THREE.MeshStandardMaterial({ color: 0x00ffe7, roughness: 0.2, metalness: 0.5 });
+    const sphere = new THREE.Mesh(geometry, material);
+    scene.add(sphere);
+    const light = new THREE.PointLight(0xffffff, 1, 100);
+    light.position.set(5, 5, 5);
+    scene.add(light);
+    camera.position.z = 3;
+    function animate() {
+      requestAnimationFrame(animate);
+      sphere.rotation.y += 0.01;
+      sphere.rotation.x += 0.005;
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
 </body>
 </html>
