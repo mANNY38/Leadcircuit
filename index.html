@@ -20,7 +20,7 @@
 
     body {
       font-family: 'Didot', serif;
-      background: linear-gradient(135deg, #e0f7fa, #fce4ec);
+      background: #ffffff;
       color: #333;
       overflow-x: hidden;
     }
@@ -29,19 +29,18 @@
       position: sticky;
       top: 0;
       width: 100%;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.95);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
     }
 
     nav h1 {
       font-size: 1.8rem;
-      color: #ff4081;
+      color: #00acc1;
     }
 
     nav a {
@@ -53,7 +52,7 @@
     }
 
     nav a:hover {
-      color: #ff4081;
+      color: #00acc1;
     }
 
     .hero {
@@ -66,11 +65,12 @@
       padding: 0 1rem;
       position: relative;
       z-index: 1;
+      background: linear-gradient(180deg, #e0f7fa 0%, #ffffff 100%);
     }
 
     .hero h1 {
       font-size: 3.5rem;
-      background: linear-gradient(90deg, #00bcd4, #ff4081);
+      background: linear-gradient(90deg, #00acc1, #81d4fa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -86,7 +86,7 @@
       margin-top: 2rem;
       padding: 1rem 2.5rem;
       border: none;
-      background: linear-gradient(to right, #00bcd4, #ff4081);
+      background: linear-gradient(to right, #00acc1, #81d4fa);
       color: #fff;
       font-weight: bold;
       font-size: 1rem;
@@ -97,37 +97,7 @@
 
     .cta:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(255, 64, 129, 0.5);
-    }
-
-    .background-animation {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-      background: radial-gradient(circle at 50% 50%, #ffecb3, #f8bbd0);
-    }
-
-    .orb {
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background: linear-gradient(135deg, #ff4081, #00bcd4);
-      border-radius: 50%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(1);
-      animation: pulse 6s infinite ease-in-out;
-      filter: blur(20px);
-    }
-
-    @keyframes pulse {
-      0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-      100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+      box-shadow: 0 0 20px rgba(0, 172, 193, 0.4);
     }
 
     .section {
@@ -138,13 +108,13 @@
 
     .section:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 40px rgba(0, 188, 212, 0.2);
+      box-shadow: 0 10px 40px rgba(0, 172, 193, 0.1);
     }
 
     .section h2 {
       text-align: center;
       font-size: 2.5rem;
-      color: #00bcd4;
+      color: #00acc1;
       margin-bottom: 2rem;
     }
 
@@ -162,16 +132,27 @@
       justify-content: center;
       align-items: center;
       height: 300px;
-      background: linear-gradient(145deg, #e1f5fe, #f8bbd0);
+      background: #e1f5fe;
       margin: 2rem;
       border-radius: 20px;
-      box-shadow: inset 0 0 20px rgba(0, 188, 212, 0.2);
+      box-shadow: inset 0 0 20px rgba(0, 188, 212, 0.1);
       transform: perspective(800px) rotateX(5deg) rotateY(-5deg);
       transition: transform 0.8s ease-in-out;
     }
 
     .showcase:hover {
       transform: perspective(800px) rotateX(0deg) rotateY(0deg);
+    }
+
+    .calendly {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .calendly a {
+      font-size: 1rem;
+      color: #00acc1;
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -187,14 +168,10 @@
     </div>
   </nav>
 
-  <div class="background-animation">
-    <div class="orb"></div>
-  </div>
-
   <section class="hero">
     <h1>Next-Gen Lead Systems</h1>
     <p>Futuristic AI automation that attracts, converts, and retains clients with stunning precision and intelligent systems.</p>
-    <button class="cta">Launch My Lead Engine</button>
+    <a href="https://calendly.com/emmotu2006" target="_blank"><button class="cta">Book Your Free Demo Call</button></a>
   </section>
 
   <section class="section" id="about">
@@ -213,7 +190,10 @@
 
   <section class="section" id="contact">
     <h2>Get in Touch</h2>
-    <p>Let’s help you scale with elegance and precision. We build lead engines you never thought possible — futuristic, 3D, and built to win. Book your free call today.</p>
+    <p>Let’s help you scale with elegance and precision. We build lead engines you never thought possible — futuristic, intuitive, and built to win.</p>
+    <div class="calendly">
+      <a href="https://calendly.com/emmotu2006" target="_blank">Schedule a Strategy Call via Calendly</a>
+    </div>
   </section>
 
   <script>
